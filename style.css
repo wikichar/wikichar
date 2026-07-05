@@ -1,0 +1,564 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: white;
+    color: #202122;
+    line-height: 1.6;
+}
+
+/* Layout */
+.page {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Article */
+.article {
+    flex: 1;
+    width: 500px;
+    background: #fff;
+    padding: 20px 28px;
+    border: 1px solid #a2a9b1;
+    min-width: 0;
+}
+
+/* Title */
+.article h1 {
+    font-size: 32px;
+    font-weight: normal;
+    border-bottom: 1px solid #a2a9b1;
+    padding-bottom: 6px;
+    margin-top: 0;
+}
+
+/* Sections */
+.article h2 {
+    font-family: "Linux Libertine", Georgia, Times;
+    font-size: 24px;
+    font-weight: normal;
+    border-bottom: 1px solid #a2a9b1;
+    margin-top: 30px;
+    padding-bottom: 4px;
+}
+
+/* Links */
+a {
+    color: #0645ad;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* TOC */
+.toc {
+    background: #f8f9fa;
+    border: 1px solid #a2a9b1;
+    display: inline-block;
+    padding: 10px 14px;
+    font-size: 14px;
+}
+
+/* Infobox */
+.infobox {
+    width: 260px;
+    background: #fff;
+    border: 1px solid #a2a9b1;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.infobox table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* TITLE INFBOXA (szary pasek) */
+.infobox-title {
+    background: #eaecf0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px;
+    border-bottom: 1px solid #a2a9b1;
+}
+
+/* komórki */
+.infobox td {
+    padding: 6px 8px;
+    background: #fff;
+}
+
+/* obrazek w infoboxie */
+.image-cell {
+    padding: 0;
+    text-align: center;
+    background: #fff;
+}
+
+.infobox img {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+/* podpis zdjęcia */
+.captioninfo {
+    font-family: sans-serif;
+    font-size: 12.92px;
+    color: #202122;
+    padding: 4px 6px;
+    font-weight: normal;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .page {
+        flex-direction: column;
+    }
+
+    .infobox {
+        width: 100%;
+    }
+}
+
+.infobox th.infobox-title {
+    background: #eaecf0 !important;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px;
+    border-bottom: 1px solid #a2a9b1;
+}
+.infobox-title {
+    background: #eaecf0;
+    text-align: center;
+    font-size: 16.32px;
+    font-weight: bold;
+    padding: 6px;
+    border-bottom: 1px solid #a2a9b1;
+}
+
+.infobox-subtitle {
+    font-size: 16.32px;
+    font-weight: normal;
+    margin-top: 2px;
+    color: #202122;
+}
+.infoleft {
+    vertical-align: top;
+    line-height: 1.5;
+    font-size: 13.6px;
+    background: #eaecf0 !important;
+}
+.inforight {
+    font-size: 13.6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+.ifirst {
+    border-top: 1px solid #a2a9b1;
+}
+.thumbinfo {
+    width: 230px;
+
+    background: #fff;
+
+    padding: 0px; /* TO robi „białe pole” */
+    margin-left: 8px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 1px;
+}
+
+.thumbinfo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.infobox-role {
+    background: #eaecf0 !important;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 6px;
+    border-top: 1px solid #a2a9b1;
+    border-bottom: 1px solid #a2a9b1;
+}
+.podpistd {
+    border-top: 1px solid #a2a9b1;
+    border-bottom: 1px solid #a2a9b1;
+}
+.tresc {
+    font-size: 16px;
+    font-family: sans-serif;
+    margin: 8px 0px 16px;
+}
+.toolbar {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #a2a9b1;
+    padding: 4px;
+    display: flex;
+    gap: 5px;
+    z-index: 9999;
+}
+
+.hidden {
+    display: none;
+}
+.side-btn {
+    padding: 10px 12px;
+    background: #eaecf0;
+    border: 1px solid #a2a9b1;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.side-btn:hover {
+    background: #dfe3e8;
+}
+.section {
+    position: relative;
+    margin-bottom: 20px;
+    overflow: auto;
+    position: relative;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    width: 22px;
+    height: 22px;
+
+    border: 1px solid #a2a9b1;
+    background: #f8f9fa;
+    cursor: pointer;
+
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.delete-btn:hover {
+    background: #e6e6e6;
+}
+.infobox-role {
+    position: relative;
+}
+
+.remove-office {
+    position: absolute;
+    right: 6px;
+    top: 4px;
+
+    width: 18px;
+    height: 18px;
+
+    border: 1px solid #a2a9b1;
+    background: #f8f9fa;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.remove-office:hover {
+    background: #e6e6e6;
+}
+.thumb {
+    float: right;
+    width: 260px;
+    margin: 0 0 12px 16px;
+    background: #f8f9fa;
+    border: 1px solid #a2a9b1;
+    padding: 4px;
+}
+.thumb img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.caption {
+    font-size: 14.144px;
+    line-height: 1.2;
+    text-align: left;
+
+    padding-top: 3px;
+    color: #202122;
+}
+.editable-img {
+    cursor: pointer;
+}
+.add-img-btn {
+    display: block;
+    margin-top: 10px;
+
+    background: #eaecf0;
+    border: 1px solid #a2a9b1;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.add-img-btn:hover {
+    background: #dfe3e8;
+}
+.export-hide {
+    display: none !important;
+}
+.export-mode {
+    display: none !important;
+}
+.hidden-death {
+    display: none;
+}
+.hidden-predecessor{
+    display:none;
+}
+.toggle-predecessor {
+    margin-left: 5px;
+    width: 18px;
+    height: 18px;
+
+    border: 1px solid #a2a9b1;
+    background: #f8f9fa;
+    cursor: pointer;
+    font-size: 12px;
+}
+dialog{
+    border:none;
+    border-radius:8px;
+    padding:20px;
+    width:420px;
+}
+
+dialog::backdrop{
+    background:rgba(0,0,0,.45);
+}
+
+#projectList{
+    max-height:300px;
+    overflow:auto;
+}
+
+.project-item{
+
+    display:block;
+    width:100%;
+    margin:6px 0;
+    padding:8px;
+
+    text-align:left;
+    cursor:pointer;
+}
+.explorer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 700px;
+    height: 520px;
+
+    background: #f8f9fa !important;   /* solidne tło */
+    border: 1px solid #8a8a8a;
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    
+    overflow: hidden;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-size: 14px;
+    z-index: 10000;           /* musi być wysoko */
+    display: none;
+}
+
+/* Pasek tytułu */
+.explorer-header {
+    background: #0078d7 !important;
+    color: white;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    height: 38px;
+    border-bottom: 1px solid #106ebe;
+    user-select: none;
+}
+
+.explorer-header button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.explorer-header button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Lista */
+#explorerList {
+    height: calc(100% - 38px);
+    overflow-y: auto;
+    background: white !important;   /* też solidne */
+    padding: 8px 0;
+}
+.file {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 6px 8px;
+    margin-bottom: 4px;
+
+    background: white;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.file:hover {
+    background: #e6f1ff;
+}
+
+.file-name {
+    flex: 1;
+}
+
+.file-delete {
+    color: red;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.project-thumb {
+    width: 220px;
+    height: 140px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.project-thumb .page {
+    transform: scale(0.25);
+    transform-origin: top left;
+    width: 800px; /* MUSI odpowiadać twojemu layoutowi */
+    pointer-events: none;
+}
+.project-thumb:hover {
+    transform: scale(1.5);
+    z-index: 999;
+}
+.internal-link {
+    color: #1a73e8;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.preview-mode {
+    cursor: default;
+}
+
+.preview-mode .editable-img,
+.preview-mode a {
+    pointer-events: auto; /* linki działają */
+}
+
+.preview-mode * {
+    user-select: text;
+}
+#toc {
+    position: fixed;
+    top: 50px;
+    left: 100px;
+    width: 150px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: white;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+
+    background: white;
+}
+.toc-group, .toc-h2 , .toc-h3 {
+    margin: 0;
+}
+
+#toc li {
+    margin: 1px 0;
+}
+ul#tocList {
+    margin: 0;
+    padding-left:10px;
+    padding-right: 0px;
+}
+
+.toggle {
+    visibility: hidden;
+}
+.toc-h2 a {
+    display: block;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+.toc-h3 {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.toc-h3 a {
+    display: block;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+#toc .toc-h3 {
+    display: block;
+    padding-left: 30px;
+    margin: 2px 0;
+}
+.toc-group {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+.toctitle {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: #101418;
+    text-align: left;
+    margin-left: 5px;
+}
+.pause {
+    border-bottom: 1px solid #a2a9b1;
+    margin: 8px 0;
+}
+#importHTML {
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #101418;
+    background-color: white;
+}

@@ -1,6 +1,9 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     updateTOC();
+    if (!previewMode) {
+        showEditorUI();
+    }
     document.addEventListener("selectionchange", () => {
         const sel = window.getSelection();
         if (!sel.rangeCount) return;
@@ -65,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             toolbar.classList.add("hidden");
             return;
         }
-
+        showEditorUI();
         const range = selection.getRangeAt(0);
         const rect = range.getBoundingClientRect();
 
@@ -129,6 +132,9 @@ document.getElementById("addSectionBtn").addEventListener("click", () => {
     article.appendChild(createSection());
 });
 document.addEventListener("click", e => {
+    if (!previewMode) {
+        document.getElementById("exitPreviewBtn").classList.add("hidden");
+    }
     updateTOC();
     if (e.target.classList.contains("delete-btn")) {
         e.target.closest(".section").remove();
@@ -228,20 +234,19 @@ imgInput.addEventListener("change", e => {
     reader.readAsDataURL(file);
 });
 function exportHTML() {
-    console.log("EXPORT START");
 
     const clone = document.documentElement.cloneNode(true);
 
     // usuń UI
-    clone.querySelectorAll(
-        ".delete-btn, .add-img-btn, .remove-office, #toolbar, #addSectionBtn, #addOffice, #exportHTML, #exportPNG, .side-btn, .toggle-predecessor,  #importHTML"
-    ).forEach(el => el.remove());
+    hideEditorUI();
 
     // wyłącz edycję
     clone.querySelectorAll("[contenteditable]").forEach(el => {
         el.removeAttribute("contenteditable");
     });
-
+    clone.querySelectorAll(
+        ".side-btn"
+    ).forEach(el => el.remove());
     // 🔥 WYCIĄGNIJ CSS Z LINKA
     const styleSheets = Array.from(document.styleSheets);
     let cssText = "";
@@ -265,14 +270,15 @@ function exportHTML() {
 
     // 🔥 usuń link do css (żeby nie było 2 źródeł)
     clone.querySelectorAll('link[rel="stylesheet"]').forEach(l => l.remove());
-
+    hideEditorUI();
     // export
     const blob = new Blob([clone.outerHTML], { type: "text/html" });
-
+    hideEditorUI();
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = "strona.html";
     a.click();
+    showEditorUI();
 }
 function exportPNG() {
 
@@ -583,8 +589,7 @@ function setPreview(mode) {
             btn.style.display = previewMode ? "none" : "";
         });
 
-    document.getElementById("exitPreviewBtn").style.display =
-        previewMode ? "block" : "none";
+    document.getElementById("exitPreviewBtn").classList.remove("hidden");
 
     if (!previewMode) {
         restoreEditing(); // 🔥 KLUCZ
@@ -803,4 +808,27 @@ function enablePageEditing() {
     page.querySelectorAll("*").forEach(el => {
         el.setAttribute("contenteditable", "true");
     });
+}
+function hideEditorUI() {
+    document.querySelectorAll(
+        ".delete-btn, .add-img-btn, .remove-office, .toggle-predecessor, .side-btn"
+    ).forEach(el => {
+        el.style.visibility = "hidden";
+        el.disabled = true; // dla buttonów
+    });
+
+    document.querySelectorAll("[contenteditable]").forEach(el => {
+        el.removeAttribute("contenteditable");
+    });
+}
+
+function showEditorUI() {
+    document.querySelectorAll(
+        ".delete-btn, .add-img-btn, .remove-office, .toggle-predecessor, .side-btn"
+    ).forEach(el => {
+        el.style.visibility = "visible";
+        el.disabled = false;
+    });
+
+    enablePageEditing(); // albo restoreEditing()
 }

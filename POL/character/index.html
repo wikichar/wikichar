@@ -10,7 +10,7 @@
     <button class="side-btn" onclick="exportHTML()">Export HTML</button>
     <button class="side-btn" onclick="exportPNG()">Export PNG</button>
     <button class="side-btn" id="previewBtn">Podgląd</button>
-    <button id="removeDeath" class="side-btn toggle-death">d i m śmierci</button>
+    <button id="toggle-features-btn" class="sidebtn">Pokaż listę cech</button>
     <button class="side-btn" onclick="saveProject()">💾 Zapisz</button>
     <button class="side-btn" onclick="quickSave()">💾 Szybki Zapis</button>
     <button class="side-btn" id="loadBtn" onclick="openExplorer()">📂 Wczytaj</button>
@@ -39,6 +39,11 @@
 
             <div id="explorerList"></div>
     </div>
+    <div id="features-panel" style="display: none;">
+        <h3>Wybierz widoczne cechy:</h3>
+        <!-- Checkboxy generowane automatycznie przez JavaScript -->
+        <div id="checkboxes-container"></div>
+    </div>
     <div class="page">
         <div class="layout">
 
@@ -66,8 +71,35 @@
             <table>
                 <tr><th colspan="2" contenteditable="true" class="infobox-title">Slobodan Milošević<div class="infobox-subtitle" contenteditable="true">Слободан Милошевић</div></th></tr>
                 <tr><th colspan="2"><div class="thumbinfo"><img class="thumbinfo infobox-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Stevan_Kragujevi%C4%87%2C_Slobodan_Milo%C5%A1evi%C4%87%2C_portret.jpg/960px-Stevan_Kragujevi%C4%87%2C_Slobodan_Milo%C5%A1evi%C4%87%2C_portret.jpg"></div><div class="captioninfo" contenteditable="true">Slobodan Milošević w 1988</div></th></tr>
-                <tr><td class="infoleft ifirst">Data i miejsce urodzenia</td><td contenteditable="true" class="inforight ifirst">20 sierpnia 1941 Požarevac</td></tr>
-                <tr class="death-content"><td class="infoleft">Data i miejsce śmierci</td><td contenteditable="true" class="inforight">11 marca 2006 Haga</td></tr>
+                <tr><th colspan="2"><div class="pause-info"></div></th></tr>
+                <tr class="cecha1"><td class="infoleft">Pełne imię i nazwisko</td><td contenteditable="true" class="inforight">Pełne imię i nazwisko</td></tr>
+                <tr class="cecha2"><td class="infoleft">Imię i nazwisko urodzenia</td><td contenteditable="true" class="inforight">Imię i nazwisko urodzenia</td></tr>
+                <tr class="cecha3"><td class="infoleft">Imię i nazwisko</td><td contenteditable="true" class="inforight">Imię i nazwisko</td></tr>
+                <tr class="cecha4"><td class="infoleft">Data i miejsce urodzenia</td><td contenteditable="true" class="inforight">20 sierpnia 1941 Požarevac</td></tr>
+                <tr class="cecha5"><td class="infoleft">Miejsce urodzenia</td><td contenteditable="true" class="inforight">Miejsce urodzenia</td></tr>
+                <tr class="cecha6"><td class="infoleft">Data i miejsce śmierci</td><td contenteditable="true" class="inforight">11 marca 2006 Haga</td></tr>
+                <tr class="cecha7"><td class="infoleft">Miejsce śmierci</td><td contenteditable="true" class="inforight">Miejsce śmierci</td></tr>
+                <tr class="cecha8"><td class="infoleft">Przyczyna śmierci</td><td contenteditable="true" class="inforight">Przyczyna śmierci</td></tr>
+                <tr class="cecha9"><td class="infoleft">Miejsce spoczynku</td><td contenteditable="true" class="inforight">Miejsce spoczynku</td></tr>
+                <tr class="cecha10"><td class="infoleft">Zawód, zajęcie</td><td contenteditable="true" class="inforight">Zawód</td></tr>
+                <tr class="cecha11"><td class="infoleft">Miejsce zamieszkania</td><td contenteditable="true" class="inforight">Miejsce zamieszkania</td></tr>
+                <tr class="cecha12"><td class="infoleft">Narodowość</td><td contenteditable="true" class="inforight">Narodowość</td></tr>
+                <tr class="cecha13"><td class="infoleft">Tytuł naukowy</td><td contenteditable="true" class="inforight">Tytuł naukowy</td></tr>
+                <tr class="cecha14"><td class="infoleft">Edukacja</td><td contenteditable="true" class="inforight">Edukacja</td></tr>
+                <tr class="cecha15"><td class="infoleft">Alma Mater</td><td contenteditable="true" class="inforight">Alma Mater</td></tr>
+                <tr class="cecha16"><td class="infoleft">Uczelnia</td><td contenteditable="true" class="inforight">Uczelnia</td></tr>
+                <tr class="cecha17"><td class="infoleft">Wydział</td><td contenteditable="true" class="inforight">Wydział</td></tr>
+                <tr class="cecha18"><td class="infoleft">Stanowisko</td><td contenteditable="true" class="inforight">Stanowisko</td></tr>
+                <tr class="cecha19"><td class="infoleft">Pracodawca</td><td contenteditable="true" class="inforight">Pracodawca</td></tr>
+                <tr class="cecha20"><td class="infoleft">Majątek</td><td contenteditable="true" class="inforight">Majątek</td></tr>
+                <tr class="cecha21"><td class="infoleft">Partia</td><td contenteditable="true" class="inforight">Partia</td></tr>
+                <tr class="cecha22"><td class="infoleft">Wyznanie</td><td contenteditable="true" class="inforight">Wyznanie</td></tr>
+                <tr class="cecha23"><td class="infoleft">Rodzice</td><td contenteditable="true" class="inforight">Rodzice</td></tr>
+                <tr class="cecha24"><td class="infoleft">Małżeństwo</td><td contenteditable="true" class="inforight">Małżeństwo</td></tr>
+                <tr class="cecha25"><td class="infoleft">Partner</td><td contenteditable="true" class="inforight">Partner</td></tr>
+                <tr class="cecha26"><td class="infoleft">Partnerka</td><td contenteditable="true" class="inforight">Partnerka</td></tr>
+                <tr class="cecha27"><td class="infoleft">Dzieci</td><td contenteditable="true" class="inforight">Dzieci</td></tr>
+                <tr class="cecha28"><td class="infoleft">Krewni i powinowaci</td><td contenteditable="true" class="inforight">Krewni i powinowaci</td></tr>
                 <tbody class="office-group">
                     <tr>
                         <td contenteditable="true" colspan="2" class="infobox-role">

@@ -1,0 +1,63 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <meta name="wiki-editor-version" content="1.0">
+</head>
+<body spellcheck="false">
+    <button id="addSectionBtn" class="side-btn">Dodaj kolejny nagłówek</button>
+    <button class="side-btn" onclick="exportHTML()">Export HTML</button>
+    <button class="side-btn" onclick="exportPNG()">Export PNG</button>
+    <button class="side-btn" id="previewBtn">Podgląd</button>
+    <button class="side-btn" onclick="saveProject()">💾 Zapisz</button>
+    <button class="side-btn" onclick="quickSave()">💾 Szybki Zapis</button>
+    <button class="side-btn" id="loadBtn" onclick="openExplorer()">📂 Wczytaj</button>
+    <button id="exitPreviewBtn" class="hidden">
+        ✖ Wyjdź z podglądu
+    </button>
+    <div id="toolbar" class="toolbar hidden">
+                <button onclick="format('bold')">B</button>
+                <button onclick="format('italic')">I</button>
+                <button onclick="formatBlock('P')">➖</button>
+                <button onclick="formatBlock('h1')">H1</button>
+                <button onclick="formatBlock('h2')">H2</button>
+                <button onclick="formatBlock('h3')"><strong>H3</strong></button>
+                <button onclick="openLinks()">🔗</button>
+                <button onclick="format('insertUnorderedList')">•</button>
+                <button onclick="insertSeeAlso()">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Information_icon4.svg/20px-Information_icon4.svg.png"
+                        width="16" height="16">
+                </button>
+    </div>
+        <div id="explorer" class="explorer hidden">
+            <div class="explorer-header">
+                Projekty
+                <button onclick="closeExplorer()">✖</button>
+            </div>
+
+            <div id="explorerList"></div>
+    </div>
+    <div id="features-panel" style="display: none;">
+        <h3>Wybierz widoczne cechy:</h3>
+        <!-- Checkboxy generowane automatycznie przez JavaScript -->
+        <div id="checkboxes-container"></div>
+    </div>
+    <div class="page">
+        <div class="layout">
+
+            <div class="page"></div>
+
+            <aside id="toc"><div class="toctitle">Spis treści</div>
+                <div class="pause"></div>
+                <ul id="tocList"></ul>
+            </aside>
+
+        </div>
+        <div class="article">
+            <h1 contenteditable="true">Bitwa o Los Angeles</h1>
+            <p contenteditable="true" class="tresc"><strong>Bitwa o Los Angeles</strong>  (ang. Battle of Los Angeles) – niewyjaśnione wydarzenie mające miejsce 25 lutego 1942 roku. Otworzono wtedy ogień z artylerii przeciwlotniczej do niezidentyfikowanego obiektu latającego (lub obiektów) zaobserwowanego nad Los Angeles, ponieważ obawiano się japońskiego nalotu, jednak nie strącono żadnego samolotu.</p>
+        </div>
+    </div>
+    <input type="file" id="imgInput" accept="image/*" hidden>
+    <input type="file" id="importHTML">
+</body>

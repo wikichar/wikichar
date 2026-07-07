@@ -557,7 +557,7 @@ ul#tocList {
     color: #101418;
     background-color: white;
 }
-.delete-btn, .add-img-btn, .remove-office, .toggle-predecessor, .side-btn {
+.remove-office, .toggle-predecessor, .side-btn {
     visibility: hidden;
 }
 .see-also {
@@ -622,4 +622,46 @@ ul#tocList {
 /* Klasa ukrywająca wiersze w tabeli */
 .hidden {
   display: none !important;
+}
+.thumb {
+    float: right;
+    width: 260px;
+    margin: 0 0 12px 16px;
+    background: #f8f9fa;
+    border: 1px solid #a2a9b1;
+    padding: 4px;
+}
+
+.thumb img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.caption {
+    font-size: 14.144px;
+    line-height: 1.2;
+    text-align: left;
+    padding-top: 3px;
+    color: #202122;
+}
+
+.editable-img {
+    cursor: pointer;
+}
+
+.add-img-btn {
+    margin-top: 10px;
+    background: #eaecf0;
+    border: 1px solid #a2a9b1;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.add-img-btn:hover {
+    background: #dfe3e8;
+}
+.no-edit {
+    caret-color: transparent; /* ukrywa migający kursor */
+    user-select: none;         /* opcjonalnie blokuje zaznaczanie */
 }

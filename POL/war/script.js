@@ -109,7 +109,7 @@ function createSection() {
     section.dataset.hasImage = "false";
 
     section.innerHTML = `
-        <button class="delete-btn">×</button>
+        <button class="delete-btn no-edit" contenteditable="false">×</button>
 
         <h2 contenteditable="true">
             Nowy nagłówek
@@ -119,7 +119,7 @@ function createSection() {
             Nowa treść...
         </p>
 
-        <button class="add-img-btn">
+        <button class="add-img-btn no-edit" contenteditable="false">
             + zdjęcie
         </button>
     `;
@@ -301,6 +301,19 @@ function exportPNG() {
         ui.forEach(el => el.classList.remove("export-mode"));
     });
 }
+document.getElementById("removeDeath").addEventListener("click", () => {
+
+    document.querySelectorAll(".death-content").forEach(el => {
+
+        if (el.classList.contains("hidden-death")) {
+            el.classList.remove("hidden-death");
+        } else {
+            el.classList.add("hidden-death");
+        }
+
+    });
+
+});
 document.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete-btn")) {
         e.target.closest(".section").remove();

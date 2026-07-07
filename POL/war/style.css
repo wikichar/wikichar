@@ -75,9 +75,10 @@ a:hover {
     flex-shrink: 0;
 }
 
-.infobox table {
-    width: 100%;
-    border-collapse: collapse;
+.infobox table{
+    width:100%;
+    table-layout:fixed;
+    border-collapse:collapse;
 }
 
 /* TITLE INFBOXA (szary pasek) */
@@ -154,6 +155,7 @@ a:hover {
     border-bottom: 1px solid #a2a9b1;
 }
 .infoleft {
+    width: 66px;
     vertical-align: top;
     line-height: 1.5;
     font-size: 13.6px;
@@ -250,19 +252,6 @@ a:hover {
     position: relative;
 }
 
-.remove-office {
-    position: absolute;
-    right: 6px;
-    top: 4px;
-
-    width: 18px;
-    height: 18px;
-
-    border: 1px solid #a2a9b1;
-    background: #f8f9fa;
-    cursor: pointer;
-    font-size: 12px;
-}
 
 .remove-office:hover {
     background: #e6e6e6;
@@ -315,16 +304,6 @@ a:hover {
 }
 .hidden-predecessor{
     display:none;
-}
-.toggle-predecessor {
-    margin-left: 5px;
-    width: 18px;
-    height: 18px;
-
-    border: 1px solid #a2a9b1;
-    background: #f8f9fa;
-    cursor: pointer;
-    font-size: 12px;
 }
 dialog{
     border:none;
@@ -558,7 +537,7 @@ ul#tocList {
     color: #101418;
     background-color: white;
 }
-.delete-btn, .add-img-btn, .remove-office, .toggle-predecessor, .side-btn {
+.remove-office, .toggle-predecessor, .side-btn {
     visibility: hidden;
 }
 .see-also {
@@ -577,7 +556,6 @@ ul#tocList {
     flex-shrink: 0;
 }
 .warleft {
-    width: 50%;
     vertical-align: top;
     text-align: top left;
     background-color: #EEEEEE !important;
@@ -586,17 +564,20 @@ ul#tocList {
     line-height: 1.5;
 }
 .warright {
-    width: 50%;
     vertical-align: top;
     text-align: top left;
     font-size: 13.6px;
     background-color: #EEEEEE !important;
     border-left: lightgray solid 1px;
-     line-height: 1.5;
+    line-height: 1.5;
 }
 .strony {
     background-color: #D3D3D3 !important;
 }
 .hidden-section{
     display:none;
+}
+.no-edit {
+    caret-color: transparent; /* ukrywa migający kursor */
+    user-select: none;         /* opcjonalnie blokuje zaznaczanie */
 }
